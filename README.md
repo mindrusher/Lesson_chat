@@ -118,11 +118,11 @@ docker-compose exec backend python manage.py test --verbosity=2
 
 # Django API
 
-POST	/api/start-lesson/	Начать урок	{success, session_id, question, question_number, total_questions}
-POST	/api/submit-answer/	Отправить ответ	{success, next_question, next_question_number, is_last}
-GET	    /admin/	Django админка	HTML (если была создана)
+- POST	/api/start-lesson/	Начать урок	{success, session_id, question, question_number, total_questions}
+- POST	/api/submit-answer/	Отправить ответ	{success, next_question, next_question_number, is_last}
+- GET	    /admin/	Django админка	HTML (если была создана)
 
 # ML-service
 
-POST	/check_answer	Проверить ответ	{is_correct, processing_time} или ошибка 503
-GET	    /health	Health check	{status: "healthy"}
+- POST	/check_answer	Проверить ответ	{is_correct, processing_time} или ошибка 503
+- GET	    /health	Health check	{status: "healthy"}
