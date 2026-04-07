@@ -74,26 +74,26 @@ docker-compose exec backend python manage.py migrate
 - Backend (Django)	http://localhost:8000	Вариант с использованием джанго шаблонов + админка (если создать суперпользователя)
 - ML Service API	    http://localhost:8001/docs	Swagger документация
 
-### Управление и проверка
+## Управление и проверка
 
-# Просмотр статуса контейнеров
+### Просмотр статуса контейнеров
 ```
 docker-compose ps
 ```
 
-# Просмотр логов всех сервисов
+### Просмотр логов всех сервисов
 ```
 docker-compose logs -f
 ```
 
-# Просмотр логов конкретного сервиса
+### Просмотр логов конкретного сервиса
 ```
 docker-compose logs -f backend
 docker-compose logs -f celery
 docker-compose logs -f ml_service
 ```
 
-# Просмотр записей в БД PostgreSQL
+### Просмотр записей в БД PostgreSQL
 ```
 docker-compose exec postgres psql -U chatuser -d chatdb
 
@@ -102,27 +102,27 @@ SELECT * FROM lessons_interactionrecord;                # Все записи
 SELECT COUNT(*) FROM lessons_interactionrecord;         # Количество записей
 ```
 
-# Просмотр записей через Django shell
+### Просмотр записей через Django shell
 ```
 docker-compose exec backend python manage.py shell
 >>> from lessons.models import InteractionRecord
 >>> InteractionRecord.objects.all().values('id', 'status', 'is_correct', 'user_answer')
 ``` 
 
-# Запуск тестов
+## Запуск тестов
 ```
 docker-compose exec backend python manage.py test --verbosity=2
 ```
 
-### API endpoints
+## API endpoints
 
-# Django API
+### Django API
 
 - POST	/api/start-lesson/	Начать урок	{success, session_id, question, question_number, total_questions}
 - POST	/api/submit-answer/	Отправить ответ	{success, next_question, next_question_number, is_last}
 - GET	    /admin/	Django админка	HTML (если была создана)
 
-# ML-service
+### ML-service
 
 - POST	/check_answer	Проверить ответ	{is_correct, processing_time} или ошибка 503
 - GET	    /health	Health check	{status: "healthy"}
