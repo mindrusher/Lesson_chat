@@ -70,9 +70,9 @@ docker-compose exec backend python manage.py migrate
 
 ### Доступ к сервисам
 
-Frontend (Next.js)	http://localhost:3000	Интерфейс чата
-Backend (Django)	http://localhost:8000	Вариант с использованием джанго шаблонов + админка (если создать суперпользователя)
-ML Service API	    http://localhost:8001/docs	Swagger документация
+- Frontend (Next.js)	http://localhost:3000	Интерфейс чата
+- Backend (Django)	http://localhost:8000	Вариант с использованием джанго шаблонов + админка (если создать суперпользователя)
+- ML Service API	    http://localhost:8001/docs	Swagger документация
 
 ### Управление и проверка
 
